@@ -22,10 +22,10 @@ android {
 spoon {
     debug = true
     //adbTimeout = 30
-    className = 'com.mytaxi.android_demo.ExampleSearchDriverTest'
-    methodName = 'mainActivityTest'
-    sequential = true
-    grantAllPermissions = true
+    //className = 'com.mytaxi.android_demo.ExampleSearchDriverTest'
+    //methodName = 'mainActivityTest'
+    //sequential = true
+    //grantAllPermissions = true
 }
 
 dependencies {
