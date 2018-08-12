@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'spoon'
 
 android {
     compileSdkVersion 27
@@ -16,6 +17,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+spoon {
+    debug = true
+    //adbTimeout = 30
+    className = 'com.mytaxi.android_demo.ExampleSearchDriverTest'
+    methodName = 'mainActivityTest'
+    sequential = true
+    grantAllPermissions = true
 }
 
 dependencies {
@@ -41,4 +51,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
     androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:3.0.2"
     androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
 }
+
+
