@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'spoon'
 
+
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -52,6 +54,12 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso.idling:idling-concurrent:3.0.2"
     androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
     androidTestImplementation 'com.squareup.spoon:spoon-client:1.7.1'
+}
+
+task wrapper (type: Wrapper ) {
+    group 'Wrapper'
+    description 'Download gradle wrapper'
+    gradleVersion '4.4'
 }
 
 
