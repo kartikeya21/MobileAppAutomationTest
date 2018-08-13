@@ -35,7 +35,7 @@ jobs:
             #adb shell input keyevent 82
       - run:
           name: Run EspressoTests
-          command: ./gradlew app:connectedAndroidTest
+          command: ./gradlew connectedAndroidTest
       - store_artifacts:
           path: build/outputs/apk
       - store_test_results:
