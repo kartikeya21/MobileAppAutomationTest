@@ -1,23 +1,15 @@
 package com.mytaxi.android_demo;
 
-import android.Manifest;
-import android.app.Activity;
-import android.media.MediaCas;
-import android.service.textservice.SpellCheckerService;
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 import android.support.test.uiautomator.UiDevice;
-import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-
-import com.mytaxi.android_demo.activities.AuthenticationActivity;
 import com.mytaxi.android_demo.activities.MainActivity;
-import com.squareup.spoon.Spoon;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -26,9 +18,6 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import java.util.Collection;
-
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -43,32 +32,28 @@ import static android.support.test.espresso.matcher.ViewMatchers.withClassName;
 import static android.support.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static android.support.test.runner.lifecycle.Stage.RESUMED;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
-@LargeTest
 @RunWith(AndroidJUnit4.class)
 public class ExampleSearchDriverTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(MainActivity.class);
 
-    private MainActivity mActivity = null;
-    //private final int MILISECONDS_TIMEOUT = 300;
-
+    private MainActivity mActivity ;
 
     @Rule
     public GrantPermissionRule permissionRule
             = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION);
-
 
     @Before
     public void setUp() {
         mActivity = mActivityRule.getActivity();
     }
 
+    @LargeTest
     @Test
     public void mainActivityTest() throws InterruptedException {
 

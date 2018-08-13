@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/MobileAppAutomationTest/AndroidDemo
+    working_directory: ~/MobileAppAutomationTest/AndroidDemo/app
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -16,7 +16,7 @@ jobs:
           command: ./gradlew dependencies
       - save_cache:
           paths:
-            - ~/.gradle
+            - ~/.gradlew
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       #- run:
           #name: Setup emulator
@@ -35,7 +35,7 @@ jobs:
             #adb shell input keyevent 82
       - run:
           name: Run EspressoTests
-          command: ./gradlew ExampleSearchDriverTest
+          command: ./gradlew app:connectedAndroidTest
       - store_artifacts:
           path: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build/outputs/apk
       - store_test_results:
