@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    #working_directory: ~/Users/kartik/MobileAppAutomationTest/AndroidDemo 
+    working_directory: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/src/androidTest/java/com/mytaxi/android_demo
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -35,7 +35,7 @@ jobs:
             #adb shell input keyevent 82
       - run:
           name: Run EspressoTests
-          command: ./gradlew test
+          command: ./gradlew ExampleSearchDriverTest
       - store_artifacts:
           path: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build/outputs/apk
       - store_test_results:
