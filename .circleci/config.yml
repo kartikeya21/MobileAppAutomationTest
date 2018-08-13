@@ -35,7 +35,7 @@ jobs:
             #adb shell input keyevent 82
       - run:
           name: Run EspressoTests
-          command: ./gradlew ExampleSearchDriverTest
+          command: ./gradlew test
       - store_artifacts:
           path: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build/outputs/apk
       - store_test_results:
