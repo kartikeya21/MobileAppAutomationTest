@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: 
+    working_directory: ~/project
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -37,7 +37,7 @@ jobs:
           name: Run EspressoTests
           command: ./gradlew connectedAndroidTest
       - store_artifacts:
-          path: build/outputs/apk
+          path: app/build/outputs/apk
       - store_test_results:
-          path: build/test-results
+          path: app/build/test-results
 
