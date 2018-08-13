@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build
+    working_directory: ~/app/build
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -37,7 +37,7 @@ jobs:
           name: Run EspressoTests
           command: ./gradlew line androidTest
       - store_artifacts:
-          path: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build/outputs/apk
+          path: app/build/outputs/apk
       - store_test_results:
-          path: /Users/kartik/MobileAppAutomationTest/AndroidDemo/app/build/test-results
+          path: app/build/test-results
 
