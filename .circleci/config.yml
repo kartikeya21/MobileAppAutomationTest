@@ -36,8 +36,8 @@ jobs:
       - run:
           name: Run EspressoTests
           command: |
-                ./gradlew :app:assembleDebug
-                ./gradlew :app:assembleDebugAndroidTest
+                ./gradlew assembleDebug
+                ./gradlew assembleDebugAndroidTest
       - store_artifacts:
           path: app/build/outputs/apk
       - store_test_results:
