@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/app
+    working_directory: ~/MobileAppAutomationTest/AndroidDemo
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -10,14 +10,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "MobileAppAutomationTest/AndroidDemo/app/build.gradle" }}
       - run:
           name: Download Dependencies
           command: ./gradlew dependencies
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "MobileAppAutomationTest/AndroidDemo/app/build.gradle" }}
       #- run:
           #name: Setup emulator
           #command: sdkmanager "system-images;android-25;google_apis;arm64-v8a" && echo "no" | avdmanager create avd -n test -k "system-images;android-25;google_apis;arm64-v8a"
