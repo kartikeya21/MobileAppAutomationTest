@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /home/circleci/project/app
+    working_directory: /home/circleci/project/app/AndroidDemo/app
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -11,14 +11,14 @@ jobs:
       - checkout
       - run: ls -al /home/circleci/project/app/AndroidDemo
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "/home/circleci/project/app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "home/circleci/project/app/AndroidDemo/build.gradle" }}
       - run:
           name: Download Dependencies
           command: ./gradlew dependencies
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "/home/circleci/project/app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "/home/circleci/project/app/AndroidDemo/build.gradle" }}
       #- run:
           #name: Setup emulator
           #command: sdkmanager "system-images;android-25;google_apis;arm64-v8a" && echo "no" | avdmanager create avd -n test -k "system-images;android-25;google_apis;arm64-v8a"
@@ -38,7 +38,7 @@ jobs:
           name: Run EspressoTests
           command: ./gradlew app:connectedAndroidTest
       - store_artifacts:
-          path: :app/build/outputs/apk
+          path: app/build/outputs/apk
       - store_test_results:
-          path: :app/build/test-results
+          path: app/build/test-results
 
