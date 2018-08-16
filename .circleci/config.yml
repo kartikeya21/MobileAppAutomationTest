@@ -9,7 +9,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - run: ls -al project/AndroidDemo/app
+      - run: ls -al /home/circleci/project/AndroidDemo/app/
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "home/circleci/project/AndroidDemo/app/build.gradle" }}
       - run:
