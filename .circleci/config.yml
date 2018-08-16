@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /home/circleci/project
+    working_directory: /home/circleci
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
@@ -9,7 +9,7 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - run: ls -al /home/circleci/project/AndroidDemo/app
+      - run: ls -al /home/circleci/project
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
