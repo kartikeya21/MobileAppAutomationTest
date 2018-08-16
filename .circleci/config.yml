@@ -7,6 +7,7 @@ jobs:
       - image: circleci/android:api-25-alpha
     environment:
       JVM_OPTS: -Xmx3200m
+      - run: ls -al /home/circleci/app/build.gradle   
     steps:
       - checkout
       - restore_cache:
@@ -14,7 +15,6 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew dependencies
-      run: ls -al /home/circleci/app/build.gradle    
       - save_cache:
           paths:
             - ~/.gradle
