@@ -14,6 +14,7 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew dependencies
+      run: ls -al /home/circleci/app/build.gradle    
       - save_cache:
           paths:
             - ~/.gradle
