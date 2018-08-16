@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /home/circleci
+    working_directory: /home/circleci/kartikeya21/MobileAppAutomationTest/tree/master/AndroidDemo/app
     docker:
       # Android the primary container
       - image: circleci/android:api-25-alpha
